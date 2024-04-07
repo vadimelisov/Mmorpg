@@ -1,6 +1,6 @@
 from django import forms
 
-from board.models import Post, Reply
+from Funsite.board.models import Post, Reply
 
 
 class PostForm(forms.ModelForm):

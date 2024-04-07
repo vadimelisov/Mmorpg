@@ -1,6 +1,6 @@
 from django_filters import FilterSet, ModelChoiceFilter
 
-from board.models import Reply, Post
+from Funsite.board.models import Reply, Post
 
 
 class PostFilter(FilterSet):

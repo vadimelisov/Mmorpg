@@ -3,8 +3,8 @@ from django.db.models.signals import post_save
 from django.template.loader import render_to_string
 from django.dispatch import receiver
 
-from board.models import Reply
-from sitecore import settings
+from Funsite.board.models import Reply
+from Funsite.sitecore import settings
 
 
 def send_email(reply, title, template, subscribers_email):

@@ -4,10 +4,10 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.template.loader import render_to_string
 from django.views.generic import ListView, DetailView, CreateView, UpdateView
 
-from board.filters import PostFilter
-from board.forms import PostForm, ReplyForm, SendForm
-from board.models import Post, Reply
-from sitecore import settings
+from Funsite.board.filters import PostFilter
+from Funsite.board.forms import PostForm, ReplyForm, SendForm
+from Funsite.board.models import Post, Reply
+from Funsite.sitecore import settings
 
 
 class PostsList(ListView):
