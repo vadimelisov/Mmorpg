@@ -1,6 +1,6 @@
 from django.urls import path
 
-from Funsite.board.views import PostsList, PostDetail, PostCreate, ReplyAdd, PostEdit, Replies, delete_reply, delete_post, \
+from .views import PostsList, PostDetail, PostCreate, ReplyAdd, PostEdit, Replies, delete_reply, delete_post, \
    allow_reply, news_send
 
 urlpatterns = [

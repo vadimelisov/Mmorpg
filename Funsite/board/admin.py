@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from Funsite.board.models import Post, Category, Reply
+from .models import Post, Category, Reply
 
 admin.site.register(Post)
 admin.site.register(Category)
