@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Post</title>
+</head>
+<body>
+  <h1 align="center" style="font-size:50px">{{ post.title }}</h1>
+  <p>Автор:{{post.post_author}}</p>
+  <h2>{{ post.content }}</h2>
+
+
+  <hr color="black">
+
+    {% if is_logged %}
+    {% if request.user != post.post_author %}
+        <button> <a href="{{ post.id }}/reply/add"> Оставить отклик</a> </button>
+    {% endif %}
+  {% endif %}
+
+  {% for reply in replys %}
+    <ul>
+        <li><strong>{{ reply.author }}
+        {% if reply.post.post_author == request.user or reply.author == request.user %}
+            <button><a href="{% url 'delete_reply' reply.id %}">Удалить</a></button>
+        {% endif %}
+        {% if reply.post.post_author == request.user and not reply.is_allowed %}
+            <button><a href="{% url 'allow_reply' reply.id %}">Принять</a></button>
+        {% elif reply.post.post_author == request.user and reply.is_allowed %}
+            (ПРИНЯТО)
+        {% endif %}
+        </strong></li>
+        <li><strong>{{ reply.date_posted }}</strong>
+        <ul>
+        <li><em>{{ reply.content }}</em></li>
+        </ul>
+        </li>
+    </ul>
+  {% endfor %}
+</body>
+</html>
